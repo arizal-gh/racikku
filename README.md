@@ -1,4 +1,4 @@
-# Raciku — Apotek Jadi Mudah
+# Racikku — Apotek Jadi Mudah
 
 Software manajemen apotek **offline-first**: tetap bisa dipakai untuk transaksi, cek stok, dan lihat laporan meski internet mati. Begitu ada koneksi lagi, semua data otomatis tersinkron ke cloud (Supabase) di background — tanpa perlu tindakan apa pun dari kasir/owner.
 
@@ -11,7 +11,7 @@ Software manajemen apotek **offline-first**: tetap bisa dipakai untuk transaksi,
 - ✅ Database lokal (IndexedDB via Dexie) — app tetap jalan tanpa internet
 - ✅ Sync engine ke Supabase — otomatis aktif begitu online, dan otomatis nonaktif (aman) kalau offline
 
-**Belum dibangun (menyusul di Stage berikutnya, sesuai roadmap):** Smart Apoteker/daily briefing, multi-cabang, resep & racikan, hak akses granular, notifikasi WhatsApp. Ini sengaja ditunda dulu — lihat `Audit-Raciku.md` untuk alasannya.
+**Belum dibangun (menyusul di Stage berikutnya, sesuai roadmap):** Smart Apoteker/daily briefing, multi-cabang, resep & racikan, hak akses granular, notifikasi WhatsApp. Ini sengaja ditunda dulu — lihat `Audit-Racikku.md` untuk alasannya.
 
 ---
 
@@ -43,14 +43,14 @@ Coba matikan WiFi laptop kamu setelah aplikasi terbuka — semua fitur (POS, sto
 ## Cara upload ke GitHub (repo kamu sendiri)
 
 1. Buat akun di https://github.com kalau belum punya
-2. Buat repository baru (tombol hijau "New"), kasih nama misal `raciku`, jangan centang "Add README" (karena sudah ada)
+2. Buat repository baru (tombol hijau "New"), kasih nama misal `racikku`, jangan centang "Add README" (karena sudah ada)
 3. Di terminal, dalam folder project ini, jalankan:
 ```bash
 git init
 git add .
 git commit -m "Stage 1: MVP offline-first - POS, stok, laporan"
 git branch -M main
-git remote add origin https://github.com/USERNAME-KAMU/raciku.git
+git remote add origin https://github.com/USERNAME-KAMU/racikku.git
 git push -u origin main
 ```
 Ganti `USERNAME-KAMU` dengan username GitHub kamu.
