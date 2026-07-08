@@ -7,7 +7,20 @@ import Dashboard from './pages/Dashboard'
 import POS from './pages/POS'
 import Stok from './pages/Stok'
 import Laporan from './pages/Laporan'
+import Karyawan from './pages/Karyawan'
 import { getCurrentSession, seedOwnerIfEmpty } from './db/userRepo'
+
+/**
+ * Membungkus halaman yang cuma boleh diakses owner. Kalau karyawan
+ * coba akses lewat URL langsung (misal ketik /laporan manual),
+ * mereka dilempar balik ke dashboard, bukan cuma disembunyikan di menu.
+ */
+function OwnerOnly({ session, children }) {
+  if (session?.role !== 'owner') {
+    return <Navigate to="/" replace />
+  }
+  return children
+}
 
 export default function App() {
   const [session, setSession] = useState(undefined) // undefined = belum dicek, null = belum login
@@ -48,7 +61,22 @@ export default function App() {
             <Route path="/" element={<Dashboard session={session} />} />
             <Route path="/pos" element={<POS session={session} />} />
             <Route path="/stok" element={<Stok />} />
-            <Route path="/laporan" element={<Laporan />} />
+            <Route
+              path="/laporan"
+              element={
+                <OwnerOnly session={session}>
+                  <Laporan />
+                </OwnerOnly>
+              }
+            />
+            <Route
+              path="/karyawan"
+              element={
+                <OwnerOnly session={session}>
+                  <Karyawan />
+                </OwnerOnly>
+              }
+            />
             <Route path="/login" element={<Navigate to="/" replace />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
