@@ -24,7 +24,7 @@ export default function Sidebar({ session }) {
           R
         </div>
         <div>
-          <p className="font-semibold leading-tight">Raciku</p>
+          <p className="font-semibold leading-tight">Racikku</p>
           <p className="text-[11px] text-gray-400 leading-tight">Apotek jadi mudah</p>
         </div>
       </div>
