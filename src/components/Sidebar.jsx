@@ -3,14 +3,17 @@ import { logout } from '../db/userRepo'
 import { useNavigate } from 'react-router-dom'
 
 const menu = [
-  { to: '/', label: 'Dashboard', icon: '📊' },
-  { to: '/pos', label: 'Penjualan (POS)', icon: '🛒' },
-  { to: '/stok', label: 'Obat & Stok', icon: '💊' },
-  { to: '/laporan', label: 'Laporan', icon: '📋' }
+  { to: '/', label: 'Dashboard', icon: '📊', ownerOnly: false },
+  { to: '/pos', label: 'Penjualan (POS)', icon: '🛒', ownerOnly: false },
+  { to: '/stok', label: 'Obat & Stok', icon: '💊', ownerOnly: false },
+  { to: '/laporan', label: 'Laporan', icon: '📋', ownerOnly: true },
+  { to: '/karyawan', label: 'Karyawan', icon: '👥', ownerOnly: true }
 ]
 
 export default function Sidebar({ session }) {
   const navigate = useNavigate()
+  const isOwner = session?.role === 'owner'
+  const visibleMenu = menu.filter((item) => !item.ownerOnly || isOwner)
 
   async function handleLogout() {
     await logout()
@@ -30,7 +33,7 @@ export default function Sidebar({ session }) {
       </div>
 
       <nav className="flex-1 space-y-1 px-3">
-        {menu.map((item) => (
+        {visibleMenu.map((item) => (
           <NavLink
             key={item.to}
             to={item.to}
