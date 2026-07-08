@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
-// Raciku - Pharmacy Management System
+// Racikku - Pharmacy Management System
 // Offline-first: service worker caches app shell + assets so the app
 // keeps working with no internet. Data itself is stored locally via
 // Dexie (IndexedDB) and synced to Supabase whenever a connection exists.
@@ -13,8 +13,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Raciku - Apotek Jadi Mudah',
-        short_name: 'Raciku',
+        name: 'Racikku - Apotek Jadi Mudah',
+        short_name: 'Racikku',
         description: 'Sistem manajemen apotek offline-first',
         theme_color: '#16A34A',
         background_color: '#ffffff',
