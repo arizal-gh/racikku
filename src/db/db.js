@@ -16,7 +16,7 @@ import Dexie from 'dexie'
  * devices once everything syncs to the same Supabase table.
  */
 
-export const db = new Dexie('raciku')
+export const db = new Dexie('racikku')
 
 db.version(1).stores({
   // Master data
